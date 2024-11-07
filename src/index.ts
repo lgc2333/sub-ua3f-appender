@@ -19,6 +19,7 @@ interface Proxy {
   type: string
   server: string
   port: number
+  url?: string
   udp?: boolean
   [k: string]: any
 }
@@ -83,8 +84,9 @@ app.get('/api', async (req, res) => {
   const ua3fProxy = {
     name: ua3fProxyName,
     server: req.query.server ?? '127.0.0.1',
-    port: req.query.port ? parseInt(req.query.port) : 30990,
+    port: req.query.port ? parseInt(req.query.port) : 1080,
     type: 'socks5',
+    url: 'http://connectivitycheck.platform.hicloud.com/generate_204',
     udp: false,
   } satisfies Proxy
 
