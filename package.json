@@ -1,6 +1,8 @@
 {
   "name": "sub-ua3f-appender",
   "private": true,
+  "author": "student_2333 <lgc2333@126.com>",
+  "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx src/index.ts",
