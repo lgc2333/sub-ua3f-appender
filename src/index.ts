@@ -13,6 +13,7 @@ Logger.targets[0].showTime = 'yyyy-MM-dd hh:mm:ss'
 }
 
 const ua3fProxyName = '🤗 UA3F'
+const subInfoHeaderName = 'subscription-userinfo'
 
 interface Proxy {
   name: string
@@ -111,6 +112,9 @@ app.get('/api', async (req, res) => {
   }
 
   res.setHeader('Content-Type', 'text/yaml')
+  if (subRes.headers.has(subInfoHeaderName)) {
+    res.setHeader(subInfoHeaderName, subRes.headers.get(subInfoHeaderName)!)
+  }
   res.send(yaml.dump(sub))
 })
 
